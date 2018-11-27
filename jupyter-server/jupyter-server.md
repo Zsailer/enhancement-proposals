@@ -14,18 +14,20 @@
   - This notebook should be a pure Python package (`server`?) that only provides the backend services.
   - The specific tornado handlers added to support the legacy notebook frontend would not be provided.
   - Deprecated APIs of the notebook server would not be carried over to the new server.
-  - Services would become a configurable option, allowing other applications to easily customize/extend the `ServerApp`.
+  - Services become a configurable option in the ServerApp, allowing other applications to easily customize/extend the `ServerApp`.
+  - Standardize a `service` module structure. 
+  - Reorganize pieces in jupyter_server to be either "services" or "extensions".
   - The `jupyter server` repository has only *one* extension point: server extensions. The command name for enabling or installing server extensions will have to be different from the current server extension to avoid conflict. (e.g. `jupyter server extension install`).
 
 ## Detailed Explanation 
 
 ### Service Mechanism
 
-Services are hardcoded to the server. Projects like *kernel_gateway* and *enterprise_gateway* are forced to write new server applications to avoid using services they don't want.
+Services (kernels, are hardcoded to the server. Projects like *kernel_gateway* and *enterprise_gateway* are forced to write new server applications to avoid using services they don't want.
 
 The service mechanism proposed make the services registered with the server a configurable option. 
 
-- Explicitely define a **service**. Services can have three parts:
+- Explicitely define a **service**. A service API has three submodules:
 
   *api_handlers.py*
 
@@ -72,7 +74,18 @@ The service mechanism proposed make the services registered with the server a co
   )
   ```
 
-* Make all jupyter services follow this model.
+* Make all jupyter services follow this model. The following pieces become services
+  * kernelspecs
+  * auth
+  * bundler
+  * edit
+  * files
+  * contents
+  * config
+  * api
+  * kernels
+  * security
+  * sessions
 
 ### The Extension Mechanism
 
@@ -92,6 +105,10 @@ The extension mechanism for the *jupyter server* will be the main area where `se
 The legacy Notebook should become an server extension, just like JupyterLab is a server extension.
 
 Eventually *some* front-end content could be provided by server such as a simple app listing installed and enabled extensions...
+
+### Configuration
+
+
 
 ## Interested
 
