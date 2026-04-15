@@ -1,6 +1,6 @@
 ---
 title: Jupyter AI Incorporation
-authors: Zsailer (zachsailer@gmail.com)
+authors: Zach Sailer (Zsailer), Brian Granger (ellisonbg)
 issue-number: XXX
 pr-number: XXX
 date-started: "2026-04-15"
@@ -36,7 +36,7 @@ We propose to:
 1. **Rename** the `jupyter-ai-contrib` GitHub organization to [`jupyter-ai-project`](https://github.com/jupyter-ai-project).
 2. **Transfer `jupyterlab/jupyter-ai`** and **`jupyterlite/ai`** into `jupyter-ai-project` (see [Repositories](#repositories) below).
 3. **List `jupyter-ai-project`** as the home of a Jupyter sub-project called "Jupyter AI".
-4. **Define a Steering Council** (see [Governance](#governance)).
+4. **Define the Jupyter AI Council** (see [Governance](#governance)).
 5. **Create a team-compass** at `jupyter-ai-project/team-compass`.
 6. **Add the weekly meeting** (Wednesdays, 8:30 AM Pacific) to the Jupyter public meeting calendar.
 7. **Update transferred repositories** with links to Jupyter governance documents, code of conduct, and contributing guidelines.
@@ -44,7 +44,7 @@ We propose to:
 (governance)=
 ### Governance
 
-The following people currently govern the `jupyter-ai-contrib` organization and would form the inaugural Steering Council (alphabetical order):
+The following people currently govern the `jupyter-ai-contrib` organization and would form the inaugural Jupyter AI Council (alphabetical order):
 
 - **Brian Granger** ([@ellisonbg](https://github.com/ellisonbg))
 - **David Qiu** ([@dlqqq](https://github.com/dlqqq))
